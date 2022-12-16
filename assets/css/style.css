@@ -43,19 +43,21 @@
     background-color: #9b59b6;
 }
 
+
+
 .ui-menu-color-contact {
     background-color: #3498db;
 }
 
 .ui-menu-color-download {
-    background-color: #525252;
+    background-color: #d9a81d;
 }
 
-.ui.menu-color-github {
-    background: #1c4a6c;
+.ui-menu-color-github {
+    background-color: #1c4a6c;
 }
 
-.ui.menu-color-interests {
+.ui-menu-color-interests {
     background-color: #e74c3c;
 }
 
@@ -115,7 +117,7 @@ header {
 }
 
 .logo {
-    background: url("../images/coolcat.jpg");
+    background: url("../images/rosie.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -198,6 +200,11 @@ header {
     height: 120px;
 }
 
+/* ------------------------------Hover.css */
+
+div#map {
+    min-height: 360px;
+}
 
 /* ------------------------------Footer */
 
