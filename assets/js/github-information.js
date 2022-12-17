@@ -17,8 +17,9 @@ function userInformationHTML(user) {
 
 function repoInformationHTML(repos) {
     if (repos.length == 0) {
-        return `<div class="clearfix repo-list">No repos!</div>`
+        return `<div class="clearfix repo-list">No repos!</div>`;
     }
+
     var listItemsHTML = repos.map(function(repo) {
         return `<li>
             <a href="${repo.html_url}" target="_blank">${repo.name}</a>
@@ -64,7 +65,10 @@ function fetchGitHubInformation(event) {
                 if (errorResponse.status === 404) {
                     $("#gh-user-data").html(
                         `<h2>No info found for user ${username}</h2>`);
-                } else {
+                } else if(errorResponse.status === 403) {
+                var resetTime = new Date(errorResponse.getResponseHeader('X-Ratelimit-Reset') * 1000);
+                $("#gh-user-data").html(`<h4>Too many requests, please wait until ${resetTime.toLocaleDateString()}</h4>`);
+            } else {
                     console.log(errorResponse);
                     $("#gh-user-data").html(
                         `<h2>Error: ${errorResponse.responseJSON.message}</h2>`);
